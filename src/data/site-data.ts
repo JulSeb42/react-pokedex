@@ -2,7 +2,7 @@
 
 export const SITE_DATA = {
     NAME: "Pokemon Api",
-    FAVICON: "/vite.svg",
+    FAVICON: "/pokeball.svg",
     EMAIL: "",
     AUTHOR: "",
     YEAR: "",

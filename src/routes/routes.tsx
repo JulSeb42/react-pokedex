@@ -5,6 +5,8 @@ import { PATHS } from "routes"
 import { Homepage } from "pages/Homepage/Homepage"
 import { NotFound } from "pages/NotFound"
 import { PokemonList } from "pages/PokemonList"
+import { Generations } from "pages/Generations"
+import { Types } from "pages/Types"
 /* Prepend import - DO NOT REMOVE */
 
 type Route = {
@@ -24,7 +26,9 @@ export const routes: Array<Route> = [
     { path: "*", element: <NotFound /> },
 
     { path: PATHS.POKEMON_LIST, element: <PokemonList /> },
-    /* Prepend route - DO NOT REMOVE */
+    { path: PATHS.GENERATIONS, element: <Generations /> },
+	{ path: PATHS.TYPES, element: <Types /> },
+	/* Prepend route - DO NOT REMOVE */
 
     ...redirects,
 ]

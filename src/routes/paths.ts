@@ -3,6 +3,8 @@
 export const PATHS = {
     ROOT: "/",
     POKEMON_LIST: "/pokemon",
+	GENERATIONS: "/generations",
+	TYPES: "/types",
 	/* Prepend path - DO NOT REMOVE */
 }
 
