@@ -3,9 +3,10 @@
 export const PATHS = {
     ROOT: "/",
     POKEMON_LIST: "/pokemon",
-	GENERATIONS: "/generations",
-	TYPES: "/types",
-	/* Prepend path - DO NOT REMOVE */
+    POKEMON: (id = ":id") => `/pokemon/${id}`,
+    GENERATIONS: "/generations",
+    TYPES: "/types",
+    /* Prepend path - DO NOT REMOVE */
 }
 
 export const SERVER_PATHS = {

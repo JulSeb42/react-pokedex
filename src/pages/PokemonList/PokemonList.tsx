@@ -1,9 +1,10 @@
 /*=============================================== PokemonList ===============================================*/
 
-import { useState, useEffect, Suspense, useMemo } from "react"
-import { usePaginatedData, Paginator } from "@julseb-lib/react"
+import { useState, useEffect } from "react"
+import { usePaginatedData, Paginator, Grid } from "@julseb-lib/react"
 import { pokemonService } from "api"
 import { Page, PokemonCard } from "components"
+import { ListSkeleton } from "./Skeleton"
 import type { Pokemon } from "types"
 
 export const PokemonList = () => {
@@ -32,12 +33,20 @@ export const PokemonList = () => {
 
     return (
         <Page title="Pokemon List">
-            <Suspense>
-                {paginatedData?.map(pokemon => (
-                    <PokemonCard key={pokemon.pokedex_id} pokemon={pokemon} />
-                ))}
-                <Paginator totalPages={totalPages} />
-            </Suspense>
+            <Grid col={4} gap="s">
+                {loading ? (
+                    <ListSkeleton />
+                ) : (
+                    paginatedData.map(pokemon => (
+                        <PokemonCard
+                            key={pokemon.pokedex_id}
+                            pokemon={pokemon}
+                        />
+                    ))
+                )}
+            </Grid>
+
+            <Paginator totalPages={totalPages} />
         </Page>
     )
 }
