@@ -15,5 +15,5 @@ export const SITE_DATA = {
     LANGUAGE: "en_EN",
     KEYWORDS: [],
 
-    BASE_API_URL: "https://tyradex.app/api/v1/",
+    BASE_API_URL: "https://pokebuildapi.fr/api/v1/",
 }

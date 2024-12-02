@@ -6,20 +6,20 @@ import { StyledPokemonCard } from "./styles"
 import type { IPokemonCard } from "./types"
 
 export const PokemonCard: FC<IPokemonCard> = ({ pokemon }) => {
-    const { name, sprites, pokedex_id } = pokemon
+    const { name, image, id } = pokemon
 
     return (
         <StyledPokemonCard
-            to={PATHS.POKEMON(pokedex_id.toString())}
+            to={PATHS.POKEMON(id.toString())}
             border={{ width: 1 }}
             borderRadius="m"
             flexDirection="column"
             gap="xs"
             alignItems="center"
         >
-            <Image width="50%" src={sprites.regular} />
+            <Image width="50%" src={image} />
             <Text tag="h5" as="p">
-                {name.en}
+                {name}
             </Text>
         </StyledPokemonCard>
     )

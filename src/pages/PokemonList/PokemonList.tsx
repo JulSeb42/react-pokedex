@@ -1,6 +1,7 @@
 /*=============================================== PokemonList ===============================================*/
 
 import { useState, useEffect } from "react"
+import { useSearchParams } from "react-router-dom"
 import { usePaginatedData, Paginator, Grid } from "@julseb-lib/react"
 import { pokemonService } from "api"
 import { Page, PokemonCard } from "components"
@@ -12,19 +13,31 @@ export const PokemonList = () => {
         undefined
     )
     const [loading, setLoading] = useState(true)
+    const [searchParams] = useSearchParams()
+
+    const search = searchParams.get("pokemon")
 
     useEffect(() => {
         pokemonService
             .allPokemon()
             .then(res => {
-                setPokemon(res.data.slice(1))
-                setTimeout(() => setLoading(false), 1000)
+                if (search) {
+                    setPokemon(
+                        res.data.filter(p =>
+                            p.name.toLowerCase().includes(search.toLowerCase())
+                        )
+                    )
+                } else {
+                    setPokemon(res.data)
+                }
+
+                setLoading(false)
             })
             .catch(err => {
                 setLoading(false)
                 throw new Error(err)
             })
-    }, [])
+    }, [search])
 
     const { paginatedData, totalPages } = usePaginatedData<Pokemon>(
         pokemon as Array<Pokemon>,
@@ -38,10 +51,7 @@ export const PokemonList = () => {
                     <ListSkeleton />
                 ) : (
                     paginatedData.map(pokemon => (
-                        <PokemonCard
-                            key={pokemon.pokedex_id}
-                            pokemon={pokemon}
-                        />
+                        <PokemonCard key={pokemon.id} pokemon={pokemon} />
                     ))
                 )}
             </Grid>
