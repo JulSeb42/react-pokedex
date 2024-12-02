@@ -10,3 +10,8 @@ export const StyledPokemonCard = styled(Card)`
         transform: scale(1.05);
     }
 `
+
+export const Fallback = styled.div`
+    width: 50%;
+    aspect-ratio: 1;
+`

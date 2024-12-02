@@ -1,8 +1,9 @@
 /*=============================================== PokemonCard component ===============================================*/
 
+import { Suspense } from "react"
 import { Image, Text } from "@julseb-lib/react"
 import { PATHS } from "routes"
-import { StyledPokemonCard } from "./styles"
+import { StyledPokemonCard, Fallback } from "./styles"
 import type { IPokemonCard } from "./types"
 
 export const PokemonCard: FC<IPokemonCard> = ({ pokemon }) => {
@@ -17,7 +18,10 @@ export const PokemonCard: FC<IPokemonCard> = ({ pokemon }) => {
             gap="xs"
             alignItems="center"
         >
-            <Image width="50%" src={image} />
+            <Suspense fallback={<Fallback />}>
+                <Image width="50%" src={image} />
+            </Suspense>
+
             <Text tag="h5" as="p">
                 {name}
             </Text>
