@@ -17,7 +17,7 @@ export const SERVER_PATHS = {
     POKEMON_BY_NAME: (name: string) => `${SERVER_PATHS.ALL_POKEMON}/${name}`,
     POKEMON_BY_GENERATION: (gen: string) => `${SERVER_PATHS}/generation/${gen}`,
     ALL_TYPES: "/types",
-    POKEMON_BY_TYPES: (type: string) =>
+    POKEMON_BY_TYPE: (type: string) =>
         `${SERVER_PATHS.ALL_POKEMON}/type/${type}`,
     POKEMON_MULTI_TYPES: (type1: string, type2: string) =>
         `${SERVER_PATHS.ALL_POKEMON}/types/${type1}/${type2}`,
@@ -31,4 +31,6 @@ export const SERVER_PATHS = {
         `${SERVER_PATHS.ALL_POKEMON}/type/double-resistance/${resistance}`,
     POKEMON_BY_IMMUNITY: (immunity: string) =>
         `${SERVER_PATHS.ALL_POKEMON}/type/immunity/${immunity}`,
+    POKEMON_RANDOM_TEAM: "/random-team",
+    POKEMON_RANDOM_TEAM_SUGGEST: "/random-team/suggest",
 }

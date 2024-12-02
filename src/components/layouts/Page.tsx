@@ -1,7 +1,7 @@
 /*=============================================== Page ===============================================*/
 
 import { useLocation } from "react-router-dom"
-import { PageLoading, Wrapper, Main, Aside } from "@julseb-lib/react"
+import { PageLoading, Wrapper, Main } from "@julseb-lib/react"
 import { PATHS } from "routes"
 import { BaseLayout, type IBaseLayout } from "./BaseLayout"
 import { Header } from "./Header/Header"
@@ -27,7 +27,8 @@ export const Page: FC<IPage> = ({
 
                     {!noWrapper ? (
                         <Wrapper>
-                            {aside && <Aside>{aside}</Aside>}
+                            {aside && aside}
+
                             <Main size={mainSize}>{children}</Main>
                         </Wrapper>
                     ) : (

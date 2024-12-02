@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom"
 import { usePaginatedData, Paginator, Grid } from "@julseb-lib/react"
 import { pokemonService } from "api"
 import { Page, PokemonCard } from "components"
+import { AsidePokeList } from "./Aside"
 import { ListSkeleton } from "./Skeleton"
 import type { Pokemon } from "types"
 
@@ -45,7 +46,7 @@ export const PokemonList = () => {
     )
 
     return (
-        <Page title="Pokemon List">
+        <Page title="Pokemon List" aside={<AsidePokeList />}>
             <Grid col={4} gap="s">
                 {loading ? (
                     <ListSkeleton />

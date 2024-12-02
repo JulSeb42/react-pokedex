@@ -34,6 +34,18 @@ export default (plop: NodePlopAPI) => {
             },
             {
                 type: "confirm",
+                name: "as",
+                message: "Add `as` prop?",
+                default: false,
+            },
+            {
+                type: "confirm",
+                name: "children",
+                message: "Add `children` prop?",
+                default: true,
+            },
+            {
+                type: "confirm",
                 name: "export",
                 message: "Export this component from components folder?",
             },
@@ -56,7 +68,7 @@ export default (plop: NodePlopAPI) => {
                     // @ts-ignore
                     path: `${BASE_PATH}/components/index.ts`,
                     template:
-                        'export * from "components/{{ pascalCase name }}"\n$1',
+                        'export * from "./{{ pascalCase name }}"\n$1',
                     pattern: /(\/\* Prepend - DO NOT REMOVE \*\/)/g,
                 })
             }
